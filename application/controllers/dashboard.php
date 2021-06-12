@@ -2,14 +2,20 @@
 
 class Dashboard extends CI_Controller{
 
-    public function index()
-    {
-        $data['barang'] = $this->model_barang->tampil_data()->result();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('dashboard', $data);
-        $this->load->view('templates/footer');
-    }
+		public function __construct(){
+			parent:: _construct();
+			
+			if($this->session->userdata('role_id')!='1'){
+				$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					Anda belum login.
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>');
+			redirect('auth/login');		
+			 
+			}
+		}
+	
+	
 
     public function tambah_keranjang($id)
     {
@@ -22,7 +28,7 @@ class Dashboard extends CI_Controller{
         );
         
         $this->cart->insert($data);
-        redirect('dashboard');
+        redirect('Welcome');
     }
     
     public function detail_keranjang()
@@ -36,7 +42,7 @@ class Dashboard extends CI_Controller{
     public function hapus_keranjang()
     {
         $this->cart->destroy();
-        redirect('dashboard/index');
+        redirect('Welcome');
     }
 
     public function pembayaran()
@@ -49,10 +55,24 @@ class Dashboard extends CI_Controller{
 
     public function proses_pesanan()
     {
-        $this->cart->destroy();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('proses_pesanan');
-        $this->load->view('templates/footer');
+        $is_processed = $this->cart->model_tagihan->index();
+		if($is_processed){
+			$this->cart->destroy();
+			$this->load->view('templates/header');
+			$this->load->view('templates/sidebar');
+			$this->load->view('proses_pesanan');
+			$this->load->view('templates/footer');
+		}
+		else{
+			echo "Maaf, pesanan anda gagal diproses.";
+		}
     }
+	
+	public function detail(){
+		$data['barang'] = $this->model_barang->detail_brg($id_barang);
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('detail_barang',$data);
+		$this->load->view('templates/footer');
+	}
 } 

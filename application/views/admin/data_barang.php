@@ -58,8 +58,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Kategori</label>
-                        <input type="text" name="kategori" class="form-control">
+                         <label>Kategori</label>
+                         <select class="form-control" name="kategori">
+								<option>Bibit Bunga</option>
+								<option>Buket Bunga</option>
+							</select>
                     </div>
 
                     <div class="form-group">

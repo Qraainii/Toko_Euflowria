@@ -19,7 +19,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('dashboard/index') ?>">
+                <a class="nav-link" href="<?php echo base_url('dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -34,13 +34,13 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/bibit_bunga') ?>">
                     <i class="fas fa-fw fa-seedling"></i>
                     <span>Bibit Bunga</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/buket_bunga') ?>">
                     <i class="fas fa-fw fa-spa"></i>
                     <span>Buket Bunga</span></a>
             </li>
@@ -121,13 +121,10 @@
                                     <?php echo anchor('dashboard/detail_keranjang', $keranjang) ?>
                                 </li>
                             </ul>
-                        </div>
+							
+							 <div class="topbar-divider d-none d-sm-block"></div>
 
-
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
+                        <!-- Nav Item - User Information 
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -135,7 +132,7 @@
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
-                            <!-- Dropdown - User Information -->
+                            <!-- Dropdown - User Information 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -156,9 +153,22 @@
                                     Logout
                                 </a>
                             </div>
-                        </li>
-
+                        </li>-->
+						
+						<ul class="na navbar-nav navbar-right">
+							<?php if($this->session->userdata('username')) {?>
+							<li><div>Selamat Datang!<?php if($this->session->userdata('username')) ?></div></li>
+							<li class="ml-2"><?php echo anchor('auth/logout', 'Logout') ?></li>
+							<?php } else{ ?>
+							<li><?php echo anchor('auth/login', 'Login') ?></li>
+							<?php }?>
                     </ul>
+							
+                        </div>
+
+
+
+
 
                 </nav>
                 <!-- End of Topbar -->
