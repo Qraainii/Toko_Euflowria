@@ -22,3 +22,4 @@
             $this->load->view('templates_admin/footer');
         }
     }
+	
