@@ -15,7 +15,7 @@
 
             <h5>Input Alamat Pengiriman dan Pembayaran</h5>
 
-            <form action="<?php echo base_url('dashboard/proses_pesanan'); ?>" method="post">
+            <form action="<?php echo base_url('dashboard/proses_pesanan/'); ?>" method="post">
 
                 <div class="form-group">
                     <label>Nama Lengkap</label>

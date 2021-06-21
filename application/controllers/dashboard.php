@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata('role_id') != '2') {
+        if ($this->session->userdata('role_id') != '1') {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible" role="alert">
 			<strong>You are not Logged In</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -27,7 +27,7 @@ class Dashboard extends CI_Controller
         );
 
         $this->cart->insert($data);
-        redirect('Welcome');
+        redirect('dashboard');
     }
 
     public function detail_keranjang()
@@ -54,7 +54,7 @@ class Dashboard extends CI_Controller
 
     public function proses_pesanan()
     {
-        $is_processed = $this->cart->model_tagihan->index();
+        $is_processed = $this->model_invoice->index();
         if ($is_processed) {
             $this->cart->destroy();
             $this->load->view('templates/header');
@@ -66,7 +66,7 @@ class Dashboard extends CI_Controller
         }
     }
 
-    public function detail()
+    public function detail($id_brg)
     {
         $data['barang'] = $this->model_barang->detail_brg($id_brg);
         $this->load->view('templates/header');

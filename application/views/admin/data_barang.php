@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <button class="btn btn-sm btn-primary mb-3" data-toggle = "modal" data-target="#tambah_barang"><i class="fas fa-plus fa-sm"></i> Tambah Produk</button>
+    <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_barang"><i class="fas fa-plus fa-sm"></i> Tambah Produk</button>
     <table class="table table-border">
         <tr>
             <th>No</th>
@@ -12,20 +12,22 @@
         </tr>
 
         <?php
-        $no=1;
-        foreach($barang as $brg) : ?>
+        $no = 1;
+        foreach ($barang as $brg) : ?>
 
-        <tr>
-            <td><?php echo $no++ ?></td>
-            <td><?php echo $brg->nama_brg ?></td>
-            <td><?php echo $brg->keterangan ?></td>
-            <td><?php echo $brg->kategori ?></td>
-            <td><?php echo $brg->harga ?></td>
-            <td><?php echo $brg->stok ?></td>
-            <td><div class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></div></td>
-            <td><?php echo anchor('admin/data_barang/edit/' .$brg->id_brg, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
-            <td><?php echo anchor('admin/data_barang/hapus/' .$brg->id_brg,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-        </tr>
+            <tr>
+                <td><?php echo $no++ ?></td>
+                <td><?php echo $brg->nama_brg ?></td>
+                <td><?php echo $brg->keterangan ?></td>
+                <td><?php echo $brg->kategori ?></td>
+                <td><?php echo $brg->harga ?></td>
+                <td><?php echo $brg->stok ?></td>
+                <td>
+                    <div class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></div>
+                </td>
+                <td><?php echo anchor('admin/data_barang/edit/' . $brg->id_brg, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                <td><?php echo anchor('admin/data_barang/hapus/' . $brg->id_brg, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+            </tr>
 
         <?php endforeach; ?>
 
@@ -45,7 +47,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="<?php echo base_url(). 'admin/data_barang/tambah_aksi' ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url() . 'admin/data_barang/tambah_aksi' ?>" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label>Nama Produk</label>
@@ -58,11 +60,11 @@
                     </div>
 
                     <div class="form-group">
-                         <label>Kategori</label>
-                         <select class="form-control" name="kategori">
-								<option>Bibit Bunga</option>
-								<option>Buket Bunga</option>
-							</select>
+                        <label>Kategori</label>
+                        <select class="form-control" name="kategori">
+                            <option>Bibit Bunga</option>
+                            <option>Buket Bunga</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -86,7 +88,7 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
-            
+
             </form>
 
         </div>
