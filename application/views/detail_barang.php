@@ -42,7 +42,7 @@
 
 						<?php echo anchor('dashboard/tambah_keranjang/' . $brg->id_brg, '<div class="btn btn-sm btn-primary">Tambah Keranjang</div>') ?>
 
-						<?php echo anchor('dashboard/index/', '<div class="btn btn-sm btn-danger">Kembali</div>') ?>
+						<?php echo anchor('Welcome', '<div class="btn btn-sm btn-danger">Kembali</div>') ?>
 
 					</div>
 
