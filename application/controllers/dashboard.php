@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata('role_id') != '1') {
+        if ($this->session->userdata('role_id') != '2') {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible" role="alert">
 			<strong>You are not Logged In</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -27,7 +27,7 @@ class Dashboard extends CI_Controller
         );
 
         $this->cart->insert($data);
-        redirect('dashboard');
+        redirect('Welcome');
     }
 
     public function detail_keranjang()

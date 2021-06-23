@@ -37,7 +37,7 @@
 	</table>
 
 	<a href="<?= base_url('admin/invoice/index') ?>">
-		<div class="btn btn-sm btn-primary">Kembali</div>
+		<div class="btn btn-sm btn-warning">Kembali</div>
 	</a>
 
 </div>

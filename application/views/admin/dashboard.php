@@ -1,21 +1,11 @@
-<div class="container-fluid">
-    <!-- Content Row -->
-    <div class="row">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="..." alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="card text-center">
+    <div class="card-header">
+        Euflowria
     </div>
-
-    <!-- Content Row -->
+    <div class="card-body">
+        <h5 class="card-title">Selamat Datang Kembali Admin !</h5>
+        <p class="card-text">Silahkan lakukan pembaruan tertentu dengan klik di bawah ini:</p>
+        <a href="<?php echo base_url('admin/data_barang/'); ?>" class="btn btn-primary">Data Bunga</a>
+        <a href="<?php echo base_url('admin/invoice/'); ?>" class="btn btn-primary">Tagihan</a>
+    </div>
 </div>
